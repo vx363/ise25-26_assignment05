@@ -43,7 +43,6 @@ public interface PosService {
      */
     @NonNull Pos getById(@NonNull Long id) throws PosNotFoundException;
 
-    // tTODO: Add a new getByName method to enable fetching POS by name.
     @NonNull Pos getByName(@NonNull String name) throws PosNotFoundException;
 
     /**

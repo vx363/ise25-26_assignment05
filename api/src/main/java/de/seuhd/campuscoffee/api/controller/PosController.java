@@ -42,7 +42,6 @@ public class PosController {
         );
     }
 
-    // tTODO: Implement a new GET endpoint that supports filtering POS by name, e.g., /filter?name=Schmelzpunkt
 @GetMapping("/filter?name={name}")
     public ResponseEntity<PosDto> getByName(
             @PathVariable String name) {
