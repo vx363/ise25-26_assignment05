@@ -14,7 +14,7 @@ Feature: Points of Sale Management
       | name                   | description                      | type            | campus    | street          | houseNumber  | postalCode | city       |
       | Schmelzpunkt           | Great waffles                    | CAFE            | ALTSTADT  | Hauptstraße     | 90           | 69117      | Heidelberg |
       | Bäcker Görtz           | Walking distance to lecture hall | BAKERY          | INF       | Berliner Str.   | 43           | 69120      | Heidelberg |
-      | New Vending Machine    | Use only in case of emergencies  | VENDING_MACHINE | BERGHEIM  | Teststraße      | 99a
+      | New Vending Machine    | Use only in case of emergencies  | VENDING_MACHINE | BERGHEIM  | Teststraße      | 99a          | 12345      | Other City |
     When I update one of the entries
       | name                   | description                      | type            | campus    | street          | houseNumber  | postalCode | city       |
       | Schmelzpunkt           | Even better waffles              | CAFE            | ALTSTADT  | Hauptstraße     | 90           | 69117      | Heidelberg |

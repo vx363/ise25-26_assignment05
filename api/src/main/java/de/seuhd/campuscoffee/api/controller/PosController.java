@@ -42,9 +42,9 @@ public class PosController {
         );
     }
 
-@GetMapping("/filter?name={name}")
+@GetMapping("/filter")
     public ResponseEntity<PosDto> getByName(
-            @PathVariable String name) {
+            @RequestParam String name) {
         return ResponseEntity.ok(
                 posDtoMapper.fromDomain(posService.getByName(name))
         );

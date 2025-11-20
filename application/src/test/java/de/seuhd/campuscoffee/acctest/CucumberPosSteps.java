@@ -93,8 +93,9 @@ public class CucumberPosSteps {
 
     @Given("POS list contains the following")
     public void posListContainsTheFollowing(List<PosDto> posList) {
-        List<PosDto> retrievedPosList = retrievePos();
-        assertThat(retrievedPosList).isEqualTo(posList);
+        anEmptyPosList();
+        insertPosWithTheFollowingValues(posList);
+        thePosListShouldContainTheSameElementsInTheSameOrder();
     }
 
     // When -----------------------------------------------------------------------
@@ -107,7 +108,22 @@ public class CucumberPosSteps {
 
     @When("I update one of the entries")
     public void updateOneOfTheEntries(PosDto toUpdatePos) {
-        updatedPos = toUpdatePos;
+        //List<PosDto> retrievedPosList = retrievePos();
+        //assertThat(retrievedPosList).isNotEqualTo(retrievedPosList);
+        //assertThat(toUpdatePos.name()).isNotEqualTo(toUpdatePos.name());
+        PosDto retrievedPos = retrievePosByName(toUpdatePos.name());
+        retrievedPos.toBuilder()
+            .name(toUpdatePos.name())
+            .description(toUpdatePos.description())
+            .type(toUpdatePos.type())
+            .campus(toUpdatePos.campus())
+            .street(toUpdatePos.street())
+            .houseNumber(toUpdatePos.houseNumber())
+            .postalCode(toUpdatePos.postalCode())
+            .city(toUpdatePos.city())
+            .build();
+        List<PosDto> x = List.of(retrievedPos);
+        updatedPos = updatePos(x).get(0);
     }
 
     // Then -----------------------------------------------------------------------
